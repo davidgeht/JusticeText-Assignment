@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.App p {
+  width: 75%;
+  margin: auto;
+  overflow-wrap: break-word;
+  padding: 20px 0;
+}
+input{
+  width: 300px;
+  font-size: 20pt;
+}
+
+.SearchBar{
+padding-top:15px;
+}

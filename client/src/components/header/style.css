@@ -1,0 +1,17 @@
+    header{
+        height: 80px;
+        border-bottom-style: solid;
+        border-bottom-width:medium;
+        border-color:#6320ee;
+        border-radius: 50%;
+    }
+
+    .title{
+        font-family: montserrat, sans-serif;
+        color:#6320ee;
+        text-align: center;
+        font-weight: thin;
+        font-size: 27pt;
+        padding-top: 10px;
+
+    }
