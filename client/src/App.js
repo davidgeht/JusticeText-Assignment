@@ -15,7 +15,7 @@ function App() {
   const [data, setData] = useState([])
   const [value, setValue] = useState(0)
   const [searchInput, setSearchInput] = useState("")
-
+  
 
   /** DO NOT CHANGE THE FUNCTION BELOW */
   useEffect(() => {
