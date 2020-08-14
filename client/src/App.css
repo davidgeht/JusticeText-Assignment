@@ -16,3 +16,14 @@ input{
 .SearchBar{
 padding-top:15px;
 }
+
+.SBTitle{
+  font-family: lato-light,lato,sans-serif;
+  margin-right: 700px;
+
+}
+
+img{
+  float:right;
+  padding-right: 100px;
+}

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import TextItem from './components/Textitem';
+import React, {Suspense, lazy ,useEffect, useState } from 'react';
+// import TextItem from './components/Textitem';
 import Header from './components/header';
 import './App.css';
-
+import JTpic from "./assets/Justice.webp";
+// i addded a lazy loader this allows the page to load and before the TextItem fetches all 90 paragraphs
+const TextItem = lazy(()=>import("./components/Textitem"));
 // const DATA_SIZE_HALF = "half"
 const DATA_SIZE_FULL = "full"
 const DATA_SIZE_HALF = "half"
@@ -28,7 +30,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      let response = await fetch("/api/dataIdList?datasize=" + DATA_SIZE_HALF)
+      let response = await fetch("/api/dataIdList?datasize=" + DATA_SIZE_FULL)
       let list = await response.json()
 
       let dataItems = await Promise.all (list.map(async id => {
@@ -49,8 +51,11 @@ function App() {
     <div className="App">
      <Header/>
       <div className="SearchBar">
+        <h1 className="SBTitle">Search For Related Words</h1>
         <input type="text" placeholder="Search text" value={searchInput} onChange={handleChange}/>
+        <img src={JTpic} style={{height:'420.984px',width:'600px'}}></img>
       </div>
+     <Suspense fallback={<h1>Loading...</h1>}>
      {
        data.map((row, i) => {
         return (<p key={`p${i}`}>
@@ -60,13 +65,17 @@ function App() {
             }
 
             return (
+             
             <>
-              <TextItem key={`${i}${j}`} value={value} data={textitem}/>
+              
+              <TextItem key={`${i}${j}`} value={value} data={textitem} />
+          
             </>)
           })}
         </p>)
        })
      }
+     </Suspense>
     </div>
   );
 }
